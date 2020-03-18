@@ -5,21 +5,25 @@ tags:
 toc: true
 ---
 
-Few months ago, I was helping a startup called Abya Courses(name changed) to architect and build educational content streaming application on Azure, which allows users to register, purchase and download online courses. During this process, I learnt about many best practices and patterns of Microservices. In this blog I tried capturing my experience. Hope you will find it useful.
+Few months ago, I was helping a startup called Abya Courses(name changed) to architect and build educational content streaming product on Azure, which allows users to register, purchase and download online courses. During this process, I learnt about many best practices and patterns of Microservices. In this blog I tried capturing my experience. Hope you will find it useful.
 
-# Is Microservices architecture right choice for Abya's application? 
-Microservices and cloud native are buzzwords. Large companies like Netflix and Amazon adopted this architecture and are very successful. However, the big question is Microservices right architecture to Abya's application? 
+# Is Microservices architecture right choice for Abya's product? 
+Microservices and cloud native are buzzwords. Large companies like Netflix and Amazon adopted this architecture and are very successful. However, the big question is Microservices right architecture to Abya's product? 
 
 Deciding when to adopt Microservices is complex and difficult. So, asking critical questions keeping Microservices practices and patterns as guiding principles. I have listed few questions we used to get started.
 
-## 1. What is your scalabality requirments?
+## 1. What are your scalabality requirments?
 **Abya's Answer**: 
-*We are plannig to roll out to single region with approx. 5k user base and 20k transactions. System should be able to support monthly growth of 100% new users and 150% new transactions. We are planning to go global in approx. 6 months, so sytem should be desinged to handle latency.* 
+*We are plannig to roll out to single region with approx. 5k user base and 20k transactions. System should be able to handle growth of 100% new users and 150% new transactions monthly. We are planning to go global in approx. 6 months, so sytem should be desinged to handle latency.* 
 
 **Mapping to Microservices**:
-Scalabality is effort required to increase capacity to handle greater amounts of load. Scalability can refer to many different parameters of the system: how much additional traffic can it handle, how easy is it to add more storage capacity, or even how many more transactions can be processed.
+* Firstly, qualitative growth scale like users and transactions are not tied to individul microservices but overall product. Hence, will not help greatly in   architecture decision making. 
+* Secondly, unlike monolithic application, microservices allows you to scale the services that need scaling and run others with minimum resources. Example: If order and payment service is part of increased transaction flow, we can plan to scale those service.
+* Lastly, cloud platforms like Azure and AWS allows us to automatically scale out or scale in individual services on demand.
 
-## 2. How fast you want to go live?
+In conclusion, mapping qualitative growth scale to quantitative growth scale like RPS/QPS will help us better explain the benifits to business   
+
+## 2. What are your go live timelines?
 **Abya's Answer**: 
 *We would like to deploy higly scalable sytem which will adopt to change so we will not go live until we are satisified*
 
@@ -42,20 +46,26 @@ Microservices architecture eliminates long-term commitment to specific technolog
 
 ## 5. How often are we releasing new features? 
 **Abya's Answer**: 
-*We take user feedback seriously and try to change or add new features to system, so new feature and changes will be very often*
+*We take user feedback seriously and try to change or add new features to system, so new feature and changes will be very frequent*
 
 **Mapping to Microservices**:
 Microservices allows developers to change or add new features easily because change or update is local to service 
 
 ## 6. Do we understand the complexities of distributed systems?
+**Abya's Answer**: 
+*We have not managed complex distributed systems so far, however we are okay to learn and skill people on what it demands*
+
+**Mapping to Microservices**:
 Designing microservices is designing distributed systems. Regardless of cloud vendors of infrastructure providers distributed systems will have parts that will fail at any point of time.
 
-**Answer**: 
+## 7. What level of security is required? Is it uniform across the product?
+**Abya's Answer**: 
+*Payment data like credit card information, PII's like email id, mobile number*
 
-## 7. What level of security is required? Is it uniform across the application?
-
-**Answer**: 
+**Mapping to Microservices**:
 
 ## 8. Do we have customer using different devices like mobile, tablets, desktop?
+**Abya's Answer**: 
+*Yes. We have users accessing our content from different formfactors like mobile phones, desktops, tables*
 
-**Answer**: 
+**Mapping to Microservices**:
