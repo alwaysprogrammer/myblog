@@ -59,6 +59,9 @@ algolia:
   index_name             : alwaysprogrammer_index # YOUR_INDEX_NAME
   search_only_api_key    : a6ba4858eef90b730cb7c3fd1fd3e124 # YOUR_SEARCH_ONLY_API_KEY
   powered_by             : true # true (default), false
+  files_to_exclude:
+    - _pages/*.md
+    - _pages/*.html     
 google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
