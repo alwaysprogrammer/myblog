@@ -1,9 +1,8 @@
 ---
 title:  "Microservices on Azure: Where to start?"
-search: true
-categories: 
+tags: 
   - Microservices
-last_modified_at: 2018-02-19T08:06:00-05:00
+toc: true
 ---
 
 Few months ago, I was helping a startup called Abya Courses(name changed) to architect and build educational content streaming application on Azure, which allows users to register, purchase and download online courses. During this process, I learnt about many best practices and patterns of Microservices. In this blog I tried capturing my experience. Hope you will find it useful.
