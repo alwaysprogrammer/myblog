@@ -60,16 +60,4 @@ Designing microservices is designing distributed systems. Regardless of cloud ve
 *Payment data like credit card information, PII's like email id, mobile number*
 
 **Mapping to Microservices**:
-
-## 7. Do we have customer using different devices like mobile, tablets, desktop?
-**Abya's Answer**: 
-*Yes. We have users accessing our content from different formfactors like mobile phones, desktops, tables*
-
-**Mapping to Microservices**:
-
-## 8. What are your go live timelines?
-**Abya's Answer**: 
-*We would like to deploy higly scalable sytem which will adopt to change so we will not go live until we are satisified*
-
-**Mapping to Microservices**:
-In Microservices approach speed of development is slow to begin with because
+Many aspects of security in a microservices architecture are not any different than in monolithic application. However, we can copy the design from a monolithic application. We can follow different approach for api security like OAuth, JWT etc. Payment data can be encripted by well know encription techniques.  
